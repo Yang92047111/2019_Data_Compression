@@ -7,10 +7,13 @@
 \usepackage{fouriernc} % Use the New Century Schoolbook font
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{tikz}
 \usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{listings}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -34,7 +37,7 @@
 
         \centering
 
-        \includegraphics[width=0.7\textwidth]{logo}
+        \includegraphics[width=0.7\textwidth]{image/logo}
 
     \end{figure}
 	
@@ -427,11 +430,29 @@ space and CR (carriage return), totally 28 symbols.
 The file can be found on the class web site. Compute the entropy.
 \subsection*{Ans:}
 
+The source code for this problem are available at \\
+\url{https://github.com/Yang92047111/2019_Data_Compression.git}.\\
+After I executed the program the entropy is 4.121 bits/symbol.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{image/pmf}
+	\caption{Empirical distribution for \textbf{santaclaus.txt}}
+	\label{fig:empirical-distribution}
+\end{figure}
+
 \clearpage
 
 \section*{Problem 4}
 Write a program that designs a Huffman code for the given distribution in Problem 3.
 \subsection*{Ans:}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{image/huffman_encoding}
+	\caption{Huffman encode result for \textbf{santaclaus.txt}}
+	\label{fig:encode-result}
+\end{figure}
 
 \clearpage
 
@@ -645,13 +666,21 @@ z: 11001 \\
 		&2^{\ceil*{\log_2^{m}}}-m=2^{3}-5 = 3 \\
 		&\begin{tabular}{ cccc } 
 		\underline{1110} & \underline{111} & \underline{10} & \underline{00} \\
-		3                & 7-3 = 4         & 2              & 0 \\
-		\multicolumn{2}{c}{19} & \multicolumn{2}{c}{10} \\
-		\multicolumn{4}{c}{sequence: 19, 10} 
+		3                & 7-3 = 4         & 1              & 0 \\
+		\multicolumn{2}{c}{19} & \multicolumn{2}{c}{5} \\
+		\multicolumn{4}{c}{sequence: 19, 5} 
 		\end{tabular} \\
 	\end{align*}
 
 
 \end{enumerate}
+
+\clearpage
+
+\subsection*{Source code for Problem 3 \& 4}
+\textit{huffman.py}
+\lstinputlisting[language=Python]{huffman.py}
+\textit{main.py}
+\lstinputlisting[language=Python]{main.py}
 
 \end{document}
